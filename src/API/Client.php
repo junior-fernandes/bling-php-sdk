@@ -42,6 +42,7 @@ class Client
         } elseif($method == 'POST' || $method == 'PUT') {
             $options['form_params'] = array_merge(['apikey' => $this->apiKey], $options);
         }
+        $options['http_errors'] = false;
 
         $response = $this->client->request($method, $uri, $options);
 
@@ -50,6 +51,9 @@ class Client
             return [];
         }
 
-        return $jsonResponse;
+        return (Object)array(
+            'code' => $response->getStatusCode(),
+            'body' => $jsonResponse,
+        );
     }
 }

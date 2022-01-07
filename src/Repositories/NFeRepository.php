@@ -6,7 +6,7 @@ use Spatie\ArrayToXml\ArrayToXml;
 
 class NFeRepository extends BaseRepository
 {
-    public function all(array $filters = []): ?array
+    public function all(array $filters = []): ?Object
     {
         $options = [];
 
@@ -21,12 +21,12 @@ class NFeRepository extends BaseRepository
         return $this->client->get('notasfiscais/json/', $options);
     }
 
-    public function find(int $numero, int $serie): ?array
+    public function find(int $numero, int $serie): ?Object
     {
         return $this->client->get("notafiscal/$numero/$serie/json/");
     }
 
-    public function create(array $params): ?array
+    public function create(array $params): ?Object
     {
         $options = [];
 
@@ -39,7 +39,7 @@ class NFeRepository extends BaseRepository
         return $this->client->post('notafiscal/json/', $options);
     }
 
-    public function send(int $numero, int $serie, $sendEmail = false): ?array
+    public function send(int $numero, int $serie, $sendEmail = false): ?Object
     {
         $options = [];
 

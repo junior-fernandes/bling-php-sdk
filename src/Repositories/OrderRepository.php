@@ -6,7 +6,7 @@ use Spatie\ArrayToXml\ArrayToXml;
 
 class OrderRepository extends BaseRepository
 {
-    public function all(array $filters = [], bool $historico = false): ?array
+    public function all(array $filters = [], bool $historico = false): ?Object
     {
         $options = [];
 
@@ -25,7 +25,7 @@ class OrderRepository extends BaseRepository
         return $this->client->get('pedidos/json/', $options);
     }
 
-    public function find(int $numero, bool $historico = false): ?array
+    public function find(int $numero, bool $historico = false): ?Object
     {
         $options = [];
 
@@ -36,7 +36,7 @@ class OrderRepository extends BaseRepository
         return $this->client->get("pedido/$numero/json/", $options);
     }
 
-    public function create(array $params, bool $gerarnfe = false): ?array
+    public function create(array $params, bool $gerarnfe = false): ?Object
     {
         $options = [];
 
@@ -53,7 +53,7 @@ class OrderRepository extends BaseRepository
         return $this->client->post('pedido/json/', $options);
     }
 
-    public function update(int $numero, array $params): ?array
+    public function update(int $numero, array $params): ?Object
     {
         $options = [];
 

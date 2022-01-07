@@ -6,7 +6,7 @@ use Spatie\ArrayToXml\ArrayToXml;
 
 class ProductRepository extends BaseRepository
 {
-    public function all(array $filters = [], bool $estoque = false, string $loja = null, bool $imagem = false): ?array
+    public function all(array $filters = [], bool $estoque = false, string $loja = null, bool $imagem = false): ?Object
     {
         $options = [];
 
@@ -33,7 +33,7 @@ class ProductRepository extends BaseRepository
         return $this->client->get('produtos/json/', $options);
     }
 
-    public function find(string $codigo, bool $estoque = false, string $loja = null, bool $imagem = false): ?array
+    public function find(string $codigo, bool $estoque = false, string $loja = null, bool $imagem = false): ?Object
     {
         $options = [];
 
@@ -52,7 +52,7 @@ class ProductRepository extends BaseRepository
         return $this->client->get("produto/$codigo/json/", $options);
     }
 
-    public function findByProvider(string $codigo, string $idFornecedor, bool $estoque = false, string $loja = null, bool $imagem = false): ?array
+    public function findByProvider(string $codigo, string $idFornecedor, bool $estoque = false, string $loja = null, bool $imagem = false): ?Object
     {
         $options = [];
 
@@ -72,7 +72,7 @@ class ProductRepository extends BaseRepository
     }
 
 
-    public function create(array $params): ?array
+    public function create(array $params): ?Object
     {
         $options = [];
 
@@ -85,7 +85,7 @@ class ProductRepository extends BaseRepository
         return $this->client->post('produto/json/', $options);
     }
 
-    public function update(string $codigo, array $params): ?array
+    public function update(string $codigo, array $params): ?Object
     {
         $options = [];
 
@@ -98,7 +98,7 @@ class ProductRepository extends BaseRepository
         return $this->client->post("produto/$codigo/json/", $options);
     }
 
-    public function delete(string $codigo): ?array
+    public function delete(string $codigo): ?Object
     {
         return $this->client->delete("produto/$codigo/json/");
     }
