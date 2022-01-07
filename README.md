@@ -143,4 +143,5 @@ $bling->orders()->update(1, [
 
 ## License
 
+Projeto sob licença MIT. Desenvolvido originalmente por [Rits Tecnologia](https://github.com/rits-tecnologia/bling-php-sdk).
 
