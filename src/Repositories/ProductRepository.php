@@ -6,7 +6,7 @@ use Spatie\ArrayToXml\ArrayToXml;
 
 class ProductRepository extends BaseRepository
 {
-    public function all(array $filters = [], bool $estoque = false, string $loja = null, bool $imagem = false): ?Object
+    public function all(array $filters = [], bool $estoque = false, string $loja = null, bool $imagem = false, $page = 1): ?Object
     {
         $options = [];
 
@@ -29,6 +29,8 @@ class ProductRepository extends BaseRepository
         if(count($filters)) {
             $options['filters'] = implode('; ', $filters);
         }
+
+        $options['page'] = $page;
 
         return $this->client->get('produtos/json/', $options);
     }
