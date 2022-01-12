@@ -30,7 +30,7 @@ class ProductRepository extends BaseRepository
             $options['filters'] = implode('; ', $filters);
         }
 
-        $options['page'] = $page;
+        // $options['page'] = $page;
 
         return $this->client->get('produtos/json/', $options);
     }

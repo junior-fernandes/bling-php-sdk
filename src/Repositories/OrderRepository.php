@@ -25,6 +25,11 @@ class OrderRepository extends BaseRepository
         return $this->client->get('pedidos/json/', $options);
     }
 
+    public function situacoes(): ?Object
+    {
+        return $this->client->get('situacao/Vendas/json/', $options);
+    }
+
     public function find(int $numero, bool $historico = false): ?Object
     {
         $options = [];
