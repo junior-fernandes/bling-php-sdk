@@ -32,7 +32,7 @@ class ProductRepository extends BaseRepository
 
         // $options['page'] = $page;
 
-        return $this->client->get('produtos/json/', $options);
+        return $this->client->get('produtos/page='.$page.'/json/', $options);
     }
 
     public function find(string $codigo, bool $estoque = false, string $loja = null, bool $imagem = false): ?Object
