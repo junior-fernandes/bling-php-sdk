@@ -14,7 +14,7 @@
 		}
 	},
 	"require": {
-		"guzzlehttp/guzzle": "^6.5",
+		"guzzlehttp/guzzle": "^7.0.1",
 		"spatie/array-to-xml": "^2.11"
 	},
 	"require-dev": {
